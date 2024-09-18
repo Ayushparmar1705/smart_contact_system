@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+ <meta charset="UTF-8">
+ <title>Home Page</title>
+	<style>
+		#form{
+			background-color:white;
+			padding:1em;
+			width:500px;
+			
+			margin: auto;
+		}
+		table{
+			margin: auto;
+			text-align: center;
+		}
+		td{
+			padding:1em;
+			font-weight: bold;
+		}
+		button{
+			width:120px;
+			background-color:black;
+			color:white;
+		}
+		input{
+			padding:0.5em;
+			border:none;
+			outline:none;
+			border-bottom:2px solid black;
+			
+		}
+		input:focus{
+		
+			outline:none;
+		}
+	</style>
+</head>
+
+<body>
+<div th:replace="header2"></div>
+	
+<div id="form">
+	<form th:action="@{/updatecontact/{id}(id=${id})}" th:object="${contact}" method="post">
+		<table>
+			<tr>
+				<td><label>Enter the contact name</label></td>
+				<td><input type="text" placeholder="Contact name" th:value="${contact.contact_name}" name="contact_name"></td>
+			</tr>
+			<tr>
+				<td><label>Enter the contact number</label></td>
+				<td><input type="text" placeholder="Contact Number" th:value="${contact.contact_no}" name="contact_no"></td>
+			</tr>
+						<tr>
+				<td><label>Enter the Email</label></td>
+				<td><input type="email" placeholder="Email" name="email" th:value="${contact.email}"></td>
+			</tr>
+						<tr>
+				<td><label>Enter the work experiance</label></td>
+				<td><input type="text" placeholder="work experiance" name="work" th:value="${contact.work}"></td>
+			</tr>
+			
+		
+		</table>
+		<button>Update</button>
+		
+	</form>
+</div>
+</body>
+
+</html>

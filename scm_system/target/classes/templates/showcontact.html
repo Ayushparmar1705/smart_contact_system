@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Your contact</title>
+<style>
+#table {
+	width: 100%;
+	text-align: center;
+	background-color: whitesmoke;
+	padding: 1em;
+	box-sizing: border-box;
+}
+
+table {
+	margin: auto;
+	padding: 1em;
+}
+
+td {
+	padding: 1em;
+	font-family:serif;
+}
+.a{
+	text-decoration: none;
+	color:black;
+}
+
+</style>
+</head>
+<body>
+	<div th:replace="header2"></div>
+	<div id="table">
+		<h3>Your contacts</h3>
+		<input onkeyup="search()" type="search" style="width:500px" >
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Phno</th>
+				<th>Work experience</th>
+				<th colspan="2">Action</th>
+			</tr>
+
+			<tr th:each="list:${list}">
+				<td th:text="${list.contact_name}"></td>
+				<td th:text="${list.contact_no}"></td>
+				<td th:text="${list.email}"></td>
+				<td th:text="${list.work}"></td>
+				<td><a class="a" th:href="@{'/delete/'+${list.id}}">delete</a></td>
+				<td><a class="a" th:href="@{'/update/'+${list.id}}">update</a></td>
+			</tr>
+		</table>
+	</div>
+	
+	<script>
+		function onkeyup()
+		{
+			console.log("hii");
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Signup</title>
+<style>
+table {
+	margin: auto;
+}
+
+input{
+border:0px;
+	border-bottom:2px solid black;
+	padding:1em;
+}
+
+input:focus{
+	outline:none;
+	
+}
+
+td {
+	padding: 1em;
+
+}
+
+button {
+	width: 120px;
+	background-color: black;
+	color: white;
+	display: block;
+	
+}
+</style>
+</head>
+<body>
+	<div th:replace="header1"></div>
+	<div style="text-align: center;">
+		<h1>Login</h1>
+   <div th:if="${param.error}">
+    <div class="error-message">
+     <p>Invalid Username or Password</p>
+    </div>
+   </div>
+
+   <div th:if="${param.logout}">
+    <div class="logout-message">
+     <p>Logout Successful!</p>
+    </div>
+		
+
+	</div>
+	
+	<form th:action="@{/login}" th:object="${user}" method="post">
+		<table>
+			<tr>
+				
+				<td><input type='text' placeholder="Enter username"
+					name='username'></td>
+			</tr>
+
+
+
+			<tr>
+				
+				<td><input type="password" placeholder="Your Password"
+					name="password"></td>
+			</tr>
+			<tr>
+				<td><button>Login</button></td>
+			</tr>
+			<tr>
+				<td>Not a member?<a href="/register">Signup</a></td>
+						 
+				
+			</tr>
+			
+		</table>
+	</form>
+
+</body>
+</html>

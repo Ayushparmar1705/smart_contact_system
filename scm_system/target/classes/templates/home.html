@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Home Page</title>
+	<style>
+		#contact {
+			background-image:url("/images/contact.jpg");
+			background-size:cover;		
+			text-align:center;
+			display:flex;
+			flex-direction:column;
+			justify-content:center;
+			align-items:center;
+			color:black;
+			height:600px;
+		}
+		p{
+			font-size:20px;
+			
+		}
+	</style>
+</head>
+
+<body>
+	<div th:replace="header2"></div>
+	<div id="contact">
+	
+		<h4>SMART CONTACT MANAGER</h4>
+		<p>Start collecting our contacts in very smarter way</p>
+		<p>We provide very efficient and smarter way to  your contacts.</p>
+
+	</div>
+	
+</body>
+
+</html>

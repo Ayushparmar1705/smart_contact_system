@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Signup</title>
+<style>
+table {
+	margin: auto;
+}
+
+td {
+	padding: 1em;
+}
+
+button {
+	width: 120px;
+	background-color: black;
+	color: white;
+	display: block;
+}
+
+input{
+border:0px;
+	border-bottom:2px solid black;
+	padding:1em;
+}
+
+input:focus{
+	outline:none;
+	
+}
+</style>
+
+	<div th:replace="header1"></div>
+	<div style="text-align: center;">
+		<h1>Signup</h1>
+		<div th:if="${param.success}">
+			<div class="succes-message">
+				<p>Signup succesfully...</p>
+			</div>
+		</div>
+	</div>
+	<form th:action="@{/register}" th:object="${signup}" method="post">
+		<table>
+			<tr>
+				
+				<td><input type='text' placeholder="Enter username"
+					name='username'></td>
+			</tr>
+
+
+			<tr>
+				
+				<td><input type="text" placeholder="Your fullname" name="fullname"></td>
+			</tr>
+		
+			<tr>
+				
+				<td><input type="password" placeholder="Your Password" name="password"></td>
+			</tr>
+			<tr>
+				<td><button>Signup</button></td>
+			</tr>
+			<tr>
+				<td>Already Have Account?<a href="/login">Login Now</a></td>
+			</tr>
+		</table>
+	</form>
+
+</body>
+</html>
